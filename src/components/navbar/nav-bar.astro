@@ -1,0 +1,32 @@
+---
+import BtnTicket from "./btn-ticket.astro";
+import ListItems from "./list-items.astro";
+import LogoMidufest from "./logo-midufest.astro";
+---
+
+<nav class="fixed z-50 left-0 right-0 pt-5">
+  <div class="flex justify-between items-center max-w-screen-xl w-full mx-auto">
+    <LogoMidufest />
+    <ListItems />
+    <BtnTicket />
+  </div>
+</nav>
+
+<style>
+  nav {
+    animation-name: blurNavbar;
+    animation-duration: 0.5m; /* Firefox requires this to apply the animation */
+    animation-timeline: scroll(block nearest);
+  }
+  @keyframes blurNavbar {
+    from {
+      backdrop-filter: blur(0);
+      background-color: transparent;
+    }
+    to {
+      padding-top: 10px;
+      backdrop-filter: blur(24px);
+      background-color: rgba(0 0 0 / 0.5);
+    }
+  }
+</style>

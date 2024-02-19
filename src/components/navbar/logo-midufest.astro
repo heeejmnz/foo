@@ -1,0 +1,56 @@
+---
+import MiduFest from "../../icons/midu-fest.astro";
+---
+
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"
+  integrity="sha512-jEnuDt6jfecCjthQAJ+ed0MTVA++5ZKmlUcmDGBv2vUI/REn6FuIdixLNnQT+vKusE2hhTk2is3cFvv5wA+Sgg=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"></script>
+<script>
+  const play = document.querySelector("#btnConfetti");
+
+  const svgContainer = document.getElementById("svg") ?? document.createElement("div");
+
+
+  const animItem = bodymovin.loadAnimation({
+    wrapper: svgContainer,
+    animType: "svg",
+    loop: false,
+    autoplay: false,
+    path: "https://lottie.host/0cb06908-0732-43d6-bddd-e8754e20f579/nto9ZhunHX.json",
+  });
+
+  play?.addEventListener("mouseenter", () => {
+    svgContainer.classList.remove("hide");
+    svgContainer.style.opacity = "1";
+    animItem.goToAndPlay(0, true);
+  });
+
+  animItem.addEventListener("complete", () => {
+    svgContainer.classList.add("hide");
+  });
+</script>
+
+<a href="#" id="btnConfetti" class="relative">
+  <div class="svg" id="svg"></div>
+  <MiduFest /></a
+>
+
+<style>
+  .svg {
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    /* z-index: -10; */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  .hide {
+    display: none;
+  }
+</style>

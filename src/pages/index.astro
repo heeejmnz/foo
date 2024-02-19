@@ -1,0 +1,34 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Scene from '../components/scene/Scene';
+---
+
+<Layout title="Welcome to Astro.">
+  <div class="w-full h-screen">
+    <header class="absolute z-10 left-0 right-0 top-32">
+      <div class="relative">
+        <h1 class="text-center text-8xl font-bold">Conferencia de <span class="block text-[#FCD91C]">Programación</span></h1>
+        <h1 class="text-center text-8xl font-bold absolute top-0 right-0 left-0 opacity-80 blur-3xl">Conferencia de <span class="block text-[#FCD91C]">Programación</span></h1>
+      </div>
+      <p class="text-center pt-5">Conferencia de Programación y Desarrollo en Twitch</p>
+    </header>
+    <Scene client:load />
+    <div class="gradient"></div>
+  </div>
+</Layout>
+
+<style>
+  .gradient {
+    position: absolute;
+    z-index: 0;
+    top: -110%;
+    left: 37%;
+    width: 500px;
+    height: 1100px;
+
+    /* yellow */
+    background: #FCD91C;
+    transform: rotate(90deg);
+    filter: blur(200px);
+  }
+</style>
